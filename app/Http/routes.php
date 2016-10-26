@@ -19,6 +19,8 @@ Route::get('/contact', 'PagesController@getContact');
 
 Route::get('/articles', 'PagesController@getArticles');
 
+Route::resource('posts', 'PostController');
+
 Route::group(['middleware' => ['web']], function() {
 
 });
