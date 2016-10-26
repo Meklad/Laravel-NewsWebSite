@@ -12,6 +12,9 @@
 <link rel="stylesheet" href="{{ asset('style/css/main.css') }}">
 <link rel="stylesheet" href="{{ asset('style/css/style.css') }}">
 
+<!-- Css StyleSheets Will Loaded In Specfic Pages -->
+@yield('stylesheet')
+
 <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 <!--[if lt IE 9]>
@@ -20,4 +23,4 @@
 <![endif]-->
 
 <!-- Load Bootstrap RTL theme from RawGit -->
-<link rel="stylesheet" href="//cdn.rawgit.com/morteza/bootstrap-rtl/v3.3.4/dist/css/bootstrap-rtl.min.css">
+{{ Html::style('CSS/bootstrap-rtl.min.css') }}

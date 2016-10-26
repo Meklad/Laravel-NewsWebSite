@@ -16,6 +16,9 @@
     <!-- Second Navegation Bar -->
     @include('includes.nav2')
 
+    <!-- Success Message [Success Deployment Post] -->
+    @include('includes.messages')
+
     <!-- Content Section -->
     @yield('content')
 
@@ -24,6 +27,9 @@
 
     <!-- JS Files And Secripts Section -->
     @include('includes.js')
+
+    <!-- Scripts Will Loaded In spcfic Pages -->
+    @yield('scripts')
 
   </body>
 </html>
