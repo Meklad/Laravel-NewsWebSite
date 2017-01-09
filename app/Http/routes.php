@@ -19,8 +19,11 @@ Route::get('/contact', 'PagesController@getContact');
 
 Route::get('/articles', 'PagesController@getArticles');
 
-Route::resource('posts', 'PostController');
-
-Route::group(['middleware' => ['web']], function() {
-
+Route::group(['middleware' => ['web', 'auth']], function() {
+	Route::resource('posts', 'PostController');
+	Route::get('/logout', 'AuthController@getLogout');
 });
+
+Route::auth();
+
+Route::get('/home', 'HomeController@index');

@@ -9,11 +9,16 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use App\Post;
+use App\User;
 
 use Session;
 
 class PostController extends Controller
 {
+    public function __construct() {
+        $this->middleware('auth');
+    }
+    
     /**
      * Display a listing of the resource.
      *
@@ -21,7 +26,8 @@ class PostController extends Controller
      */
     public function index()
     {
-        //
+        $posts = User::with('posts')->latest();
+        return view('posts.index')->with('posts', $posts);
     }
 
     /**
@@ -47,9 +53,10 @@ class PostController extends Controller
                 'body'  =>  'required'
             ]);
 
-        $post = new Post;
+        $post = new Post($request->all());
         $post->title = $request->title;
         $post->body  = $request->body;
+        $post->user_id = Auth::user()->id;
         $post->save();
 
         Session::flash('success', 'لقد أنشئ الموضوع بنجاح');
@@ -66,7 +73,8 @@ class PostController extends Controller
      */
     public function show($id)
     {
-        return view('posts.show');
+        $post = Post::find($id);
+        return view('posts.show')->withPost($post);
     }
 
     /**

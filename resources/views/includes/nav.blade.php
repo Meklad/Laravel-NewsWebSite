@@ -4,6 +4,7 @@
     <li><a href="/">صالة التحرير</a></li>
     <li class="hover"><a href="/about/">عن الموقع</a></li>
     <li><a href="/contact/">إتصل بنا</a></li>
+    <li><a href="/logout">جيل خروج</a></li>
   </ul>
   <!-- Start Dropdown Mnue -->
   <ul class="nav navbar-nav navbar-left">

@@ -6,6 +6,11 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
+use App\Post;
+
+use Session;
+
+
 class PagesController extends Controller
 {
     public function getIndex()
@@ -25,6 +30,8 @@ class PagesController extends Controller
 
     public function getArticles()
     {
-        return view('pages.articles');
+        $posts = Post::all();
+
+        return view('pages.articles')->withPosts($posts);
     }
 }

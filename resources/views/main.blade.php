@@ -6,7 +6,7 @@
 
   </head>
   <body>
-    
+
     <!-- First Navegation Bar -->
     @include('includes.nav')
 
